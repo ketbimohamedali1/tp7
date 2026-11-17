@@ -60,3 +60,42 @@ console.log("sur100 :", sur100);
 console.log("somme :", somme);
 console.log("moyenne :", moyenne);
 
+console.log("---- Exercice 4 ----");
+
+const membre = {
+  prenom: "Sarra",
+  age: 19,
+  ateliers: ["HTML", "CSS"],
+  cotisationPayee: false,
+};
+console.log(membre.prenom);   
+console.log(membre["age"]);
+membre.email = "sarra@example.com";
+for (const propriete in membre) {
+  console.log(propriete + " : " + membre[propriete]);
+}
+const membre = {
+  prenom: "Sarra",
+  age: 19,
+  ateliers: ["HTML", "CSS"],
+  cotisationPayee: false,
+  sePresenter() {
+    return `Je suis ${this.prenom}, ${this.age} ans, inscrite à ${this.ateliers.length} ateliers : ${this.ateliers.join(", ")}.`;
+  },
+};
+console.log(membre.sePresenter());
+const membres = [
+  { prenom: "Sarra", age: 19, cotisationPayee: true },
+  { prenom: "Ali", age: 22, cotisationPayee: false },
+  { prenom: "Yasmine", age: 18, cotisationPayee: true },
+];
+const prenoms = membres.map((m) => m.prenom);
+// const nonPayes = membres.filter((m) => !m.cotisationPayee).map((m) => m.prenom);
+const nonPayes = membres.filter((m) => m.cotisationPayee == false).map((m) => m.prenom);
+const yasmine = membres.find((m) => m.prenom == "Yasmine");
+
+console.log("prenoms :", prenoms);
+console.log("non payés :", nonPayes);
+console.log("yasmine :", yasmine);
+console.log("âge de Yasmine :", yasmine.age);
+console.table(membres);
